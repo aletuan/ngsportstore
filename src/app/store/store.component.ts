@@ -9,6 +9,8 @@ import { ProductRepository } from "../model/product.repository";
 })
 
 export class StoreComponent {
+  public selectedCategory = null;
+
   constructor(private repository: ProductRepository) {}
 
   get products(): Product[] {
@@ -17,5 +19,9 @@ export class StoreComponent {
 
   get categories(): string[] {
     return this.repository.getCategories();
+  }
+
+  changeCategory(newCategory?: string) {
+    this.selectedCategory = newCategory;
   }
 }
